@@ -13,8 +13,8 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container-custom">
-        <div className="flex items-center justify-between py-4">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <span className="text-prasang-teal font-bold text-2xl">Prasang</span>
@@ -24,8 +24,8 @@ const Navbar: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <Link to="/" className="text-prasang-charcoal hover:text-prasang-teal font-medium">Home</Link>
-            <Link to="/planner" className="text-prasang-charcoal hover:text-prasang-teal font-medium">Trip Planner</Link>
             <Link to="/destinations" className="text-prasang-charcoal hover:text-prasang-teal font-medium">Destinations</Link>
+            <Link to="/planner" className="text-prasang-charcoal hover:text-prasang-teal font-medium">Trip Planner</Link>
             <Link to="/about" className="text-prasang-charcoal hover:text-prasang-teal font-medium">About Us</Link>
             <Link to="/blog" className="text-prasang-charcoal hover:text-prasang-teal font-medium">Blog</Link>
             <Link to="/contact" className="text-prasang-charcoal hover:text-prasang-teal font-medium">Contact</Link>
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={toggleMenu} className="text-prasang-charcoal">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -55,11 +55,11 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t animate-slide-down">
+          <div className="md:hidden py-4 border-t">
             <div className="flex flex-col space-y-4">
               <Link to="/" className="text-prasang-charcoal hover:text-prasang-teal font-medium py-2">Home</Link>
-              <Link to="/planner" className="text-prasang-charcoal hover:text-prasang-teal font-medium py-2">Trip Planner</Link>
               <Link to="/destinations" className="text-prasang-charcoal hover:text-prasang-teal font-medium py-2">Destinations</Link>
+              <Link to="/planner" className="text-prasang-charcoal hover:text-prasang-teal font-medium py-2">Trip Planner</Link>
               <Link to="/about" className="text-prasang-charcoal hover:text-prasang-teal font-medium py-2">About Us</Link>
               <Link to="/blog" className="text-prasang-charcoal hover:text-prasang-teal font-medium py-2">Blog</Link>
               <Link to="/contact" className="text-prasang-charcoal hover:text-prasang-teal font-medium py-2">Contact</Link>
@@ -82,3 +82,4 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+

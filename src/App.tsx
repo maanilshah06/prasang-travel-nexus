@@ -8,6 +8,10 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import TripPlanner from "./pages/TripPlanner";
+import Destinations from "./pages/Destinations";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,7 +28,10 @@ const App = () => (
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/planner" element={<TripPlanner />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="/destinations" element={<Destinations />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
@@ -36,3 +43,4 @@ const App = () => (
 );
 
 export default App;
+
