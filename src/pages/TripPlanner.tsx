@@ -87,8 +87,8 @@ const TripPlanner: React.FC = () => {
   // Filter states
   const [budgetRange, setBudgetRange] = useState<number[]>([500, 50000]);
   const [duration, setDuration] = useState<number[]>([1, 15]);
-  const [destinationType, setDestinationType] = useState<string>('');
-  const [activityType, setActivityType] = useState<string>('');
+  const [destinationType, setDestinationType] = useState<string>('all');
+  const [activityType, setActivityType] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   
   // Mobile filter visibility
@@ -106,8 +106,8 @@ const TripPlanner: React.FC = () => {
       destination.price <= budgetRange[1] &&
       parseInt(destination.duration.split(' ')[0]) >= duration[0] &&
       parseInt(destination.duration.split(' ')[0]) <= duration[1] &&
-      (destinationType === '' || destination.category === destinationType) &&
-      (activityType === '' || destination.category === activityType) &&
+      (destinationType === 'all' || destination.category === destinationType) &&
+      (activityType === 'all' || destination.category === activityType) &&
       (searchQuery === '' || 
         destination.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         destination.location.toLowerCase().includes(searchQuery.toLowerCase()))
@@ -205,7 +205,7 @@ const TripPlanner: React.FC = () => {
                   <SelectValue placeholder="Select destination type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Types</SelectItem>
+                  <SelectItem value="all">All Types</SelectItem>
                   <SelectItem value="Beach">Beach</SelectItem>
                   <SelectItem value="Mountain">Mountain</SelectItem>
                   <SelectItem value="Historical">Historical</SelectItem>
@@ -224,7 +224,7 @@ const TripPlanner: React.FC = () => {
                   <SelectValue placeholder="Select activity type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Activities</SelectItem>
+                  <SelectItem value="all">All Activities</SelectItem>
                   <SelectItem value="Adventure">Adventure</SelectItem>
                   <SelectItem value="Family">Family</SelectItem>
                   <SelectItem value="Wildlife">Wildlife</SelectItem>
@@ -242,8 +242,8 @@ const TripPlanner: React.FC = () => {
               onClick={() => {
                 setBudgetRange([500, 50000]);
                 setDuration([1, 15]);
-                setDestinationType('');
-                setActivityType('');
+                setDestinationType('all');
+                setActivityType('all');
                 setSearchQuery('');
               }}
             >
@@ -284,8 +284,8 @@ const TripPlanner: React.FC = () => {
                 <Button onClick={() => {
                   setBudgetRange([500, 50000]);
                   setDuration([1, 15]);
-                  setDestinationType('');
-                  setActivityType('');
+                  setDestinationType('all');
+                  setActivityType('all');
                   setSearchQuery('');
                 }}>
                   Reset Filters
