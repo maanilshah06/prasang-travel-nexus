@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Star, Calendar } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -28,7 +27,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
   featured = false
 }) => {
   return (
-    <Link to={`/destination/${id}`}>
+    <Link to={`/destination/${id}`} className="block">
       <div className={`relative rounded-xl overflow-hidden shadow-md transition-transform duration-300 hover:shadow-xl hover:-translate-y-1 ${featured ? 'border-2 border-prasang-gold' : ''}`}>
         {/* Image */}
         <div className="relative h-60 overflow-hidden">
